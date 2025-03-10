@@ -59,6 +59,9 @@ import {
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
 
+import { SimpleCard } from '../custom-cards/SimpleCard';
+
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -130,16 +133,18 @@ const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
     <Grid item md={6}>
-      <EntityAboutCard variant="gridItem" />
+      <EntityAboutCard variant="gridItem"/>
+    </Grid>
+    <Grid item md={6} xs={12} variant="gridItem">
+      <SimpleCard />
     </Grid>
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
-
-    <Grid item md={4} xs={12}>
+    <Grid item md={6} xs={12} variant="gridItem"  height={400}>
       <EntityLinksCard />
     </Grid>
-    <Grid item md={8} xs={12}>
+    <Grid item md={12} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
   </Grid>
@@ -147,6 +152,14 @@ const overviewContent = (
 
 const serviceEntityPage = (
   <EntityLayout>
+    {/* <EntityLayout.Route path="/simplecard" title="Custom Cards Demo">
+      <Grid container spacing={5} alignItems="stretch">
+        <Grid item xs="auto">
+          <SimpleCard />
+        </Grid>
+      </Grid>
+    </EntityLayout.Route> */}
+
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
@@ -265,12 +278,15 @@ const apiPage = (
       <Grid container spacing={3}>
         {entityWarningContent}
         <Grid item md={6}>
-          <EntityAboutCard />
+          <EntityAboutCard variant="gridItem" />
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <SimpleCard variant="gridItem" />
         </Grid>
         <Grid item md={6} xs={12}>
           <EntityCatalogGraphCard variant="gridItem" height={400} />
         </Grid>
-        <Grid item md={4} xs={12}>
+        <Grid item md={6} xs={12} variant="gridItem" height={400}>
           <EntityLinksCard />
         </Grid>
         <Grid container item md={12}>

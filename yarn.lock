@@ -4188,13 +4188,13 @@ __metadata:
   linkType: hard
 
 "@backstage/plugin-catalog-backend-module-logs@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "@backstage/plugin-catalog-backend-module-logs@npm:0.1.4"
+  version: 0.1.7
+  resolution: "@backstage/plugin-catalog-backend-module-logs@npm:0.1.7"
   dependencies:
-    "@backstage/backend-plugin-api": "npm:^1.0.2"
-    "@backstage/plugin-catalog-backend": "npm:^1.28.0"
-    "@backstage/plugin-events-node": "npm:^0.4.5"
-  checksum: 10c0/8074582581f7c46de093a9627d7dd39a45b6c1164c790ff787bde7ca54c9d29468aad2825c5e6d945e62f74395b760e7c768336ac221cca08a97d127af0c8c6b
+    "@backstage/backend-plugin-api": "npm:^1.2.0"
+    "@backstage/plugin-catalog-backend": "npm:^1.31.0"
+    "@backstage/plugin-events-node": "npm:^0.4.8"
+  checksum: 10c0/9dcf1b39380d67c453566112439208092033306acfff190b24a0ececf9c5905db97574b4558321c05340e3b0e59bd7ca03cc3a4c2cc7de321b4933b2aed0b655
   languageName: node
   linkType: hard
 
@@ -4208,49 +4208,6 @@ __metadata:
     "@backstage/plugin-catalog-node": "npm:^1.14.0"
     "@backstage/plugin-scaffolder-common": "npm:^1.5.7"
   checksum: 10c0/87e04515b602308cfe1186c9007462847fe867b7d78e7543d8710f917302b4d51383854b9e09ed7ff3da8f728e288dd08479c0c949ae625ea3fa8b870453ba7e
-  languageName: node
-  linkType: hard
-
-"@backstage/plugin-catalog-backend@npm:^1.28.0":
-  version: 1.28.0
-  resolution: "@backstage/plugin-catalog-backend@npm:1.28.0"
-  dependencies:
-    "@backstage/backend-common": "npm:^0.25.0"
-    "@backstage/backend-openapi-utils": "npm:^0.3.0"
-    "@backstage/backend-plugin-api": "npm:^1.0.2"
-    "@backstage/catalog-client": "npm:^1.8.0"
-    "@backstage/catalog-model": "npm:^1.7.1"
-    "@backstage/config": "npm:^1.3.0"
-    "@backstage/errors": "npm:^1.2.5"
-    "@backstage/integration": "npm:^1.15.2"
-    "@backstage/plugin-catalog-common": "npm:^1.1.1"
-    "@backstage/plugin-catalog-node": "npm:^1.14.0"
-    "@backstage/plugin-events-node": "npm:^0.4.5"
-    "@backstage/plugin-permission-common": "npm:^0.8.2"
-    "@backstage/plugin-permission-node": "npm:^0.8.5"
-    "@backstage/plugin-search-backend-module-catalog": "npm:^0.2.5"
-    "@backstage/types": "npm:^1.2.0"
-    "@opentelemetry/api": "npm:^1.3.0"
-    "@types/express": "npm:^4.17.6"
-    codeowners-utils: "npm:^1.0.2"
-    core-js: "npm:^3.6.5"
-    express: "npm:^4.17.1"
-    fast-json-stable-stringify: "npm:^2.1.0"
-    fs-extra: "npm:^11.2.0"
-    git-url-parse: "npm:^15.0.0"
-    glob: "npm:^7.1.6"
-    knex: "npm:^3.0.0"
-    lodash: "npm:^4.17.21"
-    luxon: "npm:^3.0.0"
-    minimatch: "npm:^9.0.0"
-    node-fetch: "npm:^2.7.0"
-    p-limit: "npm:^3.0.2"
-    prom-client: "npm:^15.0.0"
-    uuid: "npm:^11.0.0"
-    yaml: "npm:^2.0.0"
-    yn: "npm:^4.0.0"
-    zod: "npm:^3.22.4"
-  checksum: 10c0/3ffb3799b176919f992a51b7f769b6cb425cd87ea5e0f5def159a0ae62955c892a4305fde43c9fb8ae1e1108310b61a70d28a2f24cb55ae2960bbb63f156bcba
   languageName: node
   linkType: hard
 
@@ -14518,7 +14475,7 @@ __metadata:
     "@backstage/plugin-search-backend-node": "npm:^1.3.5"
     "@backstage/plugin-techdocs-backend": "npm:^1.11.2"
     app: "link:../app"
-    better-sqlite3: "npm:^9.0.0"
+    better-sqlite3: "npm:^11.8.1"
     node-gyp: "npm:^10.0.0"
     pg: "npm:^8.11.3"
   languageName: unknown
@@ -14630,14 +14587,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-sqlite3@npm:^9.0.0":
-  version: 9.6.0
-  resolution: "better-sqlite3@npm:9.6.0"
+"better-sqlite3@npm:^11.8.1":
+  version: 11.8.1
+  resolution: "better-sqlite3@npm:11.8.1"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.1"
-  checksum: 10c0/8db9b38f414e26a56d4c40fc16e94a253118491dae0e2c054338a9e470f1a883c7eb4cb330f2f5737db30f704d4f2e697c59071ca04e03364ee9fe04375aa9c8
+  checksum: 10c0/b6b1844f8ed5668080cc1e2a137656da756af406b616ffbd6139b230c906b9c0571bbdac53cd78cc1415689f5090d25daf95ea596ced0b9ad5e8be9b4a08662e
   languageName: node
   linkType: hard
 
