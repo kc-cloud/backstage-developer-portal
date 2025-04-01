@@ -1,0 +1,50 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: restart-k8s-deployment
+  title: Restart Kubernetes Deployment
+  description: A template to restart a Kubernetes deployment by selecting a component
+spec:
+  owner: "your-team"
+  type: service
+  parameters:
+    - title: Deployment Information
+      required:
+        - cluster
+        - namespace
+        - component
+      properties:
+        cluster:
+          type: string
+          title: Kubernetes Cluster
+          description: The name of the Kubernetes cluster
+        namespace:
+          type: string
+          title: Namespace
+          description: The Kubernetes namespace of the deployment
+        component:
+          type: string
+          title: Component Name
+          description: Select a component to restart
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds:
+              - Component
+  steps:
+    - id: restart-deployment
+      name: Restart Deployment
+      action: roadiehq:utils:run-container
+      input:
+        image: bitnami/kubectl:latest
+        args:
+          - "kubectl"
+          - "rollout"
+          - "restart"
+          - "deployment/${{ parameters.component }}"
+          - "-n"
+          - "${{ parameters.namespace }}"
+        envVars:
+          - name: KUBECONFIG
+            value: "/kube/config"
+  output:
+    text: "Deployment ${{ parameters.component }} restarted in namespace ${{ parameters.namespace }} on cluster ${{ parameters.cluster }}."
