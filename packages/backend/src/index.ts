@@ -8,6 +8,29 @@
 
 import { createBackend } from '@backstage/backend-defaults';
 
+/* highlight-add-start */
+import { scaffolderActionsExtensionPoint } from '@backstage/plugin-scaffolder-node/alpha';
+import { createBackendModule } from '@backstage/backend-plugin-api';
+/* highlight-add-end */
+
+/* highlight-add-start */
+// const scaffolderModuleCustomExtensions = createBackendModule({
+//   pluginId: 'scaffolder', 
+//   moduleId: 'simple-api-call-action',
+//   register(env) {
+//     env.registerInit({
+//       deps: {
+//         scaffolder: scaffolderActionsExtensionPoint,
+//       },
+//       async init({ scaffolder}) {
+//         scaffolder.addActions(new simpleApiCallAction());
+//       },
+//     });
+//   },
+// });
+/* highlight-add-end */
+
+
 const backend = createBackend();
 
 backend.add(import('@backstage/plugin-app-backend'));
@@ -52,5 +75,11 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 
 // kubernetes
 backend.add(import('@backstage/plugin-kubernetes-backend'));
+
+backend.add(import('@internal/plugin-scaffolder-backend-module-simple-api-call-action'));
+
+// backend.add(import('@backstage/plugin-scaffolder-backend/alpha'));
+// /* highlight-add-next-line */
+// backend.add(scaffolderModuleCustomExtensions);
 
 backend.start();

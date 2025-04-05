@@ -1,0 +1,34 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: call-api-template
+  title: Call Local API Service
+  description: Calls a web service running at http://localhost:8080/api
+
+spec:
+  owner: user@example.com
+  type: service
+
+  parameters:
+    - title: API Call Parameters
+      required: ['service_name']
+      properties:
+        service_name:
+          type: string
+          title: Service Name
+          description: The service name to send in the API request.
+        service_group:
+          type: string
+          title: Service Group
+          description: The service group name to send in the API request.
+
+  steps:
+    - id: call-api
+      name: Call API Service
+      action: custom:simple-api-call-backend
+      input:
+        service_name: ${{ parameters.service_name }}
+        service_group: ${{ parameters.service_group }}
+
+  output:
+    apiResponse: ${{ steps.call-api.output.apiResponse }}
