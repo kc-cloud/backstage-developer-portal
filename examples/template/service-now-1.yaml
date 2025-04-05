@@ -1,0 +1,36 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: create-servicenow-incident
+  title: Create ServiceNow Incident
+  description: Create a new incident in ServiceNow
+spec:
+  owner: backstage@example.com
+  type: service
+
+  parameters:
+    - title: Incident Details
+      required: [short_description, description]
+      properties:
+        short_description:
+          type: string
+          title: Short Description
+        description:
+          type: string
+          title: Full Description
+
+  steps:
+    - id: createIncident
+      name: Create Incident
+      action: community:servicenow:create-incident
+      input:
+        instanceUrl: https://your-instance.service-now.com
+        username: ${{ secrets.servicenow.username }}
+        password: ${{ secrets.servicenow.password }}
+        short_description: ${{ parameters.short_description }}
+        description: ${{ parameters.description }}
+
+  output:
+    links:
+      - title: View Incident
+        url: ${{ steps.createIncident.output.url }}

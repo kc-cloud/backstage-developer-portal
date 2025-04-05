@@ -81,5 +81,5 @@ backend.add(import('@internal/plugin-scaffolder-backend-module-simple-api-call-a
 // backend.add(import('@backstage/plugin-scaffolder-backend/alpha'));
 // /* highlight-add-next-line */
 // backend.add(scaffolderModuleCustomExtensions);
-
+backend.add(import('@backstage-community/plugin-scaffolder-backend-module-servicenow'),);
 backend.start();

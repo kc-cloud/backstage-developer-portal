@@ -1,0 +1,36 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: retrieve-servicenow-records
+  title: Retrieve Multiple ServiceNow Records
+  description: Uses a query to retrieve multiple records from a ServiceNow table
+spec:
+  owner: user:guest
+  type: service
+
+  parameters:
+    - title: Query Parameters
+      required: [table, query]
+      properties:
+        table:
+          type: string
+          title: Table Name
+          description: Name of the ServiceNow table (e.g., incident, change_request)
+        query:
+          type: string
+          title: Query (encoded)
+          description: Encoded query string (e.g., active=true^priority=1)
+
+  steps:
+    - id: getRecords
+      name: Retrieve Records
+      action: servicenow:now:table:retrieveRecords
+      input:
+        instanceUrl: https://your-instance.service-now.com
+        table: ${{ parameters.table }}
+        query: ${{ parameters.query }}
+        username: ${{ secrets.servicenow.username }}
+        password: ${{ secrets.servicenow.password }}
+
+  output:
+    records: ${{ steps.getRecords.output.result }}
